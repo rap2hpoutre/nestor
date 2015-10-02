@@ -20,7 +20,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Nestor\\Test\\": "test"
+            "Nestor\\Test\\": "tests"
         }
     }
 }
