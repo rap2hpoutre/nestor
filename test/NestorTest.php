@@ -20,10 +20,10 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $servant = new Servant;
 
         $servant->task()
-            ->up(function () use (&$test_stack) {
+            ->up(function() use (&$test_stack) {
                 $test_stack[] = 1;
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 2;
             });
 
@@ -42,11 +42,11 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $servant = new Servant;
 
         $servant->task()
-            ->up(function (Task $task) use (&$test_stack) {
+            ->up(function(Task $task) use (&$test_stack) {
                 $test_stack[] = 1;
                 $task->fail();
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 2;
             });
 
@@ -65,18 +65,18 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $servant = new Servant;
 
         $servant->task()
-            ->up(function () use (&$test_stack) {
+            ->up(function() use (&$test_stack) {
                 $test_stack[] = 1;
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 4;
             });
 
         $servant->task()
-            ->up(function () use (&$test_stack) {
+            ->up(function() use (&$test_stack) {
                 $test_stack[] = 2;
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 3;
             });
 
@@ -97,19 +97,19 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $servant = new Servant;
 
         $servant->task()
-            ->up(function () use (&$test_stack) {
+            ->up(function() use (&$test_stack) {
                 $test_stack[] = 1;
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 4;
             });
 
         $servant->task()
-            ->up(function (Task $task) use (&$test_stack) {
+            ->up(function(Task $task) use (&$test_stack) {
                 $test_stack[] = 2;
                 $task->fail();
             })
-            ->down(function () use (&$test_stack) {
+            ->down(function() use (&$test_stack) {
                 $test_stack[] = 3;
             });
 
