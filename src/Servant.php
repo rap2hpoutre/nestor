@@ -1,25 +1,48 @@
 <?php
 namespace Nestor;
 
-class Servant {
+/**
+ * Class Servant
+ * @package Nestor
+ */
+class Servant
+{
 
+    /**
+     * @var \Nestor\Task[] Task list
+     */
     private $tasks = [];
 
-    public function task() {
+    /**
+     * @var int Current task key
+     */
+    private $key = 0;
+
+    /**
+     * Create new Task
+     *
+     * @return Task
+     */
+    public function task()
+    {
         $task = new Task;
         $this->tasks[] = $task;
-        return 
+        return $task;
     }
-    
-    pulic function run() {
+
+    /**
+     * Run tasks, rollback if required
+     */
+    public function run()
+    {
         try {
-            foreach($this->tasks as $key => $task) {
-                $task->runUp();
+            foreach ($this->tasks as $this->key => $task) {
+                call_user_func($task->up, $task);
             }
-        } catch(TaskException) {
-            while($key >= 0) {
-                $this->tasks[$key]->runDown();
-                $key--;
+        } catch (TaskException $task_exception) {
+            while ($this->key >= 0) {
+                call_user_func($this->tasks[$this->key]->down, $this->tasks[$this->key]);
+                $this->key--;
             }
         }
     }
