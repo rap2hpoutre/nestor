@@ -38,3 +38,6 @@ task 1 done
 task 2 cancelled
 task 1 cancelled
 ```
+
+## About
+Thanks to [DonoSybrix](https://github.com/DonoSybrix). Feel free to contribute.
