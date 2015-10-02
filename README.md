@@ -11,7 +11,7 @@
 composer require rap2hpoutre/nestor
 ```
 ## Usage
-Run some tasks. In this example, the second task fails, it will be rolled back.
+Run some tasks. In this example, the second task fails, everything will be rolled back.
 ```php
 $nestor = new Nestor\Servant;
 
