@@ -1,5 +1,4 @@
 # Nestor Task Servant
-Do task, rollback if something goes wrong. Just like database transactions.
 
 [![Latest Version](https://img.shields.io/github/release/rap2hpoutre/nestor.svg?style=flat-square)](https://github.com/rap2hpoutre/nestor/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
@@ -9,7 +8,7 @@ Do task, rollback if something goes wrong. Just like database transactions.
 
 ## Installation
 ```
-composer require rap2hpoutre/similar-text-finder
+composer require rap2hpoutre/nestor
 ```
 ## Usage
 Run some tasks. In this example, the second task fails, it will be rolled back.
@@ -44,6 +43,9 @@ task 1 done
 task 2 cancelled
 task 1 cancelled
 ```
+
+## Why?
+Todo: Explain why.
 
 ## About
 Thanks to [DonoSybrix](https://github.com/DonoSybrix). Feel free to contribute.
