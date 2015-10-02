@@ -6,7 +6,7 @@ Do task, rollback if something goes wrong. Just like database transactions.
 composer require rap2hpoutre/similar-text-finder
 ```
 ## Usage
-Run some tasks. The second task fails, it will be rolled back.
+Run some tasks. In this example, the second task fails, it will be rolled back.
 ```php
 $nestor = new Nestor\Servant;
 
