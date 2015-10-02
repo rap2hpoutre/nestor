@@ -1,8 +1,8 @@
 {
     "name": "rap2hpoutre/nestor",
-    "description": "",
+    "description": "Do task, rollback if something goes wrong. Just like database transactions.",
     "license": "MIT",
-    "keywords": ["task"],
+    "keywords": ["task", "rollback", "up", "transaction", "package", "laravel"],
     "authors": [
         {
             "name": "rap2hpoutre",
