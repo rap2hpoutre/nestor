@@ -1,6 +1,12 @@
 # Nestor Task Servant
 Do task, rollback if something goes wrong. Just like database transactions.
 
+[![Latest Version](https://img.shields.io/github/release/rap2hpoutre/nestor.svg?style=flat-square)](https://github.com/rap2hpoutre/nestor/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/scrutinizer/build/g/rap2hpoutre/nestor.svg?style=flat-square)](https://travis-ci.org/rap2hpoutre/nestor)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/rap2hpoutre/nestor.svg?style=flat-square)](https://scrutinizer-ci.com/g/rap2hpoutre/nestor/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/rap2hpoutre/nestor.svg?style=flat-square)](https://scrutinizer-ci.com/g/rap2hpoutre/nestor)
+
 ## Installation
 ```
 composer require rap2hpoutre/similar-text-finder
