@@ -43,13 +43,4 @@ class Task
         $this->down = $callback;
         return $this;
     }
-
-    /**
-     * @param string $message
-     * @throws TaskException
-     */
-    public function fail($message = '')
-    {
-        throw new TaskException($message);
-    }
 }

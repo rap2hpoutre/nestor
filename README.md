@@ -24,10 +24,10 @@ $nestor->task()
         echo "task 1 cancelled\n";
     });
     
-// Create 2nd task (this tasks will fail)
+// Create 2nd task (will fail)
 $nestor->task()
-    ->up(function ($task) {
-        $task->fail();
+    ->up(function ($nestor) {
+        $nestor->fail();
         echo "task 2 done\n";
     })
     ->down(function () {

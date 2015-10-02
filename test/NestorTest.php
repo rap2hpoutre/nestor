@@ -42,9 +42,9 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $servant = new Servant;
 
         $servant->task()
-            ->up(function(Task $task) use (&$test_stack) {
+            ->up(function(Servant $servant) use (&$test_stack) {
                 $test_stack[] = 1;
-                $task->fail();
+                $servant->fail();
             })
             ->down(function() use (&$test_stack) {
                 $test_stack[] = 2;
@@ -105,9 +105,9 @@ class NestorTest extends \PHPUnit_Framework_TestCase
             });
 
         $servant->task()
-            ->up(function(Task $task) use (&$test_stack) {
+            ->up(function(Servant $servant) use (&$test_stack) {
                 $test_stack[] = 2;
-                $task->fail();
+                $servant->fail();
             })
             ->down(function() use (&$test_stack) {
                 $test_stack[] = 3;
@@ -120,5 +120,36 @@ class NestorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $test_stack[1]);
         $this->assertEquals(3, $test_stack[2]);
         $this->assertEquals(4, $test_stack[3]);
+    }
+
+    public function testGetterSetter()
+    {
+        $servant = new Servant;
+        $servant->put('test_stack', []);
+
+        $servant->task()
+            ->up(function(Servant $servant) {
+                $servant->push('test_stack', 1);
+            })
+            ->down(function(Servant $servant) {
+                $servant->push('test_stack', 4);
+            });
+
+        $servant->task()
+            ->up(function(Servant $servant) {
+                $servant->push('test_stack', 2);
+                $servant->fail();
+            })
+            ->down(function(Servant $servant) {
+                $servant->push('test_stack', 3);
+            });
+
+        $servant->run();
+
+        $this->assertCount(4, $servant->get('test_stack'));
+        $this->assertEquals(1, $servant->get('test_stack')[0]);
+        $this->assertEquals(2, $servant->get('test_stack')[1]);
+        $this->assertEquals(3, $servant->get('test_stack')[2]);
+        $this->assertEquals(4, $servant->get('test_stack')[3]);
     }
 }
