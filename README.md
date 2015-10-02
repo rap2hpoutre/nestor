@@ -48,4 +48,6 @@ task 1 cancelled
 Todo: Explain why.
 
 ## About
+[![Software License](http://moserm.free.fr/moulinsart/images/nestor.gif)](LICENSE)
+
 Thanks to [DonoSybrix](https://github.com/DonoSybrix). Feel free to contribute.
